@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <title>Meta-Title</title>
+    <meta name="description" content="meta-description." />
+    <link rel="stylesheet" href="scss/main.scss" />
+    <script defer src="js/script.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="name"><p>Spli<br>tter</p></div>
+      <div class="container">
+        <div class="user-input">
+          <div class="introduce-bill">
+            <form action="" class="introduce-bill__form">
+              <lable class="introduce-bill__bill">Bill</lable><br />
+              <input
+                type="number"
+                id="input-bill"
+                class="introduce-bill__input "
+                placeholder="0"         
+              /><img class="introduce-bill__icon-dollar" src="img/icon-dollar.svg" alt="" srcset=""></input>
+            </form>
+          </div>
+          <div class="tip">
+            <form action="" class="tip__form">
+              <label for="" class="tip__label">Select Tip %</label>
+              <button class="tip__5">5%</button>
+              <button class="tip__10">10%</button>
+              <button class="tip__15">15%</button>
+              <button class="tip__25">25%</button>
+              <button class="tip__50">50%</button>
+              <input type="number" name="Custom" class="tip__custom" placeholder="0" onfocus="this.placeholder=''"
+               /></input>
+            </form>
+          </div>
+          <div class="split-bill">
+            <form action="" class="split-bill__form">
+              <lable class="split-bill__label">Number of People <span class="split-bill__error-label">Can't be zero</span></lable>
+              <input type="number" class="split-bill__input error" placeholder="0" onfocus="this.placeholder=''"
+              onblur="this.placeholder='0'"><img class="split-bill__icon-person" src="img/icon-person.svg" alt="" srcset=""></input>
+            </form>
+          </div>
+        </div>
+        <div class="user-output">
+          <div class="user-output__tip">
+            <p class="user-output__amount">
+              Tip Ammount<br />
+              <span class="user-output__person">/ person</span>
+            </p>
+            <p class="user-output__value-tip">$0.00</p>
+          </div>
+          <div class="user-output__total">
+            <p class="user-output__amount">
+              Tip Ammount<br />
+              <span class="user-output__person">/ person</span>
+            </p>
+            <p class="user-output__value-total">$0.00</p>
+          </div>
+          <div class="user-output__rest">
+            <button class="user-output__reset-button">RESET</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

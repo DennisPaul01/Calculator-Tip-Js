@@ -1,0 +1,20 @@
+{
+  "name": "tips-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Mucioiu Denis Paul",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0",
+    "parcel-plugin-clean-dist": "^0.0.6",
+    "parcel-plugin-watch-reload": "^1.0.3"
+  },
+  "dependencies": {
+    "parcel": "^2.0.1",
+    "regenerator-runtime": "^0.13.9"
+  }
+}

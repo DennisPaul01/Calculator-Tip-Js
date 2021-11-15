@@ -1,0 +1,236 @@
+/* Specifics */
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//Container layout
+.container {
+  display: flex;
+  align-items: center;
+  width: 90rem;
+  height: 43rem;
+  background-color: var(--white);
+  border-radius: 3rem;
+  -webkit-box-shadow: 5px 5px 15px 8px rgba(0, 0, 0, 0.09);
+  box-shadow: 5px 5px 15px 8px rgba(0, 0, 0, 0.09);
+}
+.user-input {
+  flex-basis: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 35rem;
+  justify-content: space-between;
+  margin: 3rem;
+}
+.user-output {
+  flex-basis: 50%;
+}
+.tip {
+  &__form {
+    display: grid;
+    grid-gap: 1rem;
+    width: 100%;
+    grid-template-areas:
+      "tip__label tip__label tip__label"
+      "tip__5 tip__10 tip__15"
+      "tip__25 tip__50 tip__custom";
+  }
+  &__label {
+    grid-area: tip__label;
+  }
+  &__5 {
+    grid-area: tip__5;
+  }
+  &__10 {
+    grid-area: tip__10;
+  }
+  &__15 {
+    grid-area: tip__15;
+  }
+  &__25 {
+    grid-area: tip__25;
+  }
+  &__50 {
+    grid-area: tip__50;
+  }
+  &__custom {
+    grid-area: tip__custom;
+  }
+}
+.user-output {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-cyan);
+  color: var(--white);
+  width: 100%;
+  height: 35rem;
+  justify-content: space-between;
+  margin: 3rem;
+  padding: 3rem;
+  border-radius: 1rem;
+  &__tip,
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+//Specific
+
+@mixin input-look($bg: --light-grayish-cyan-2) {
+  width: 100%;
+  background-color: var($bg);
+  border: none;
+  text-align: right;
+  font-size: 3rem;
+  padding: 1rem;
+
+  font-weight: 700;
+  color: var(--dark-grayish-cyan-2);
+  border-radius: 0.5rem;
+  border: 2px solid var(--white);
+}
+
+@mixin label-look($color: --dark-grayish-cyan) {
+  font-size: 2rem;
+  color: var($color);
+  font-weight: 700;
+}
+
+.name {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--dark-grayish-cyan);
+  font-size: 3rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  letter-spacing: 5px;
+}
+
+.user-input {
+  .introduce-bill {
+    &__bill {
+      @include label-look;
+    }
+
+    &__input {
+      @include input-look;
+
+      &:focus {
+        border: 2px solid var(--strong-cyan);
+      }
+      position: relative;
+    }
+    &__icon-dollar {
+      position: absolute;
+      top: 20.5rem;
+      left: 4.5rem;
+    }
+  }
+  .tip {
+    &__label {
+      @include label-look;
+    }
+    &__5,
+    &__10,
+    &__15,
+    &__25,
+    &__50 {
+      font-size: 2rem;
+      background-color: var(--dark-cyan);
+      color: var(--white);
+      padding: 1rem 2rem;
+      border: none;
+      width: 12rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      border: 2px solid var(--white);
+
+      &:hover {
+        background-color: var(--strong-cyan);
+      }
+    }
+    &__custom {
+    }
+    &__custom {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      width: 12rem;
+      cursor: pointer;
+      border-radius: 0.5rem;
+      border: 2px solid var(--white);
+      background-color: var(--light-grayish-cyan-2);
+      color: var(--dark-grayish-cyan);
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+
+      &:focus {
+        border: 2px solid var(--strong-cyan);
+      }
+    }
+  }
+  .split-bill {
+    &__label {
+      @include label-look;
+      position: relative;
+    }
+    &__input {
+      @include input-look;
+      position: relative;
+      border: 2px solid var(--white);
+      &:focus {
+        border: 2px solid var(--strong-cyan);
+      }
+    }
+    &__error-label {
+      position: absolute;
+      right: -20rem;
+      top: 0rem;
+      font-size: 1.5rem;
+      color: var(--error-color);
+      display: none;
+    }
+    &__icon-person {
+      position: absolute;
+      left: 5rem;
+      top: 46.5rem;
+    }
+  }
+}
+
+.user-output {
+  &__amount {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  &__person {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark-grayish-cyan-2);
+  }
+  &__value-tip,
+  &__value-total {
+    font-size: 3.5rem;
+    color: var(--strong-cyan);
+    font-weight: 700;
+  }
+
+  &__reset-button {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 0.7rem;
+    border: none;
+    background-color: var(--dark-grayish-cyan);
+    color: var(--dark-cyan);
+    cursor: pointer;
+  }
+}

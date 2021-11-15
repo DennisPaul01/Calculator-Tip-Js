@@ -1,0 +1,38 @@
+/* Variables */
+:root {
+  /* Reset 1rem = 10px */
+  font-size: 10px;
+
+  /* Basic colors */
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Project colors */
+  --strong-cyan: hsl(172, 67%, 45%);
+  --dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --dark-grayish-cyan-2: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --light-grayish-cyan-2: hsl(189, 41%, 97%);
+  --error-color: #f26c4f;
+
+  /* Layout variables */
+  --content-width: 90rem;
+  --content-padding: 5rem;
+
+  --header-height: 10rem;
+  --keyvisual-height: 60rem;
+}
+
+// ### Primary
+
+// - Strong cyan: hsl(172, 67%, 45%)
+
+// ### Neutral
+
+// - Very dark cyan: hsl(183, 100%, 15%)
+// - Dark grayish cyan: hsl(186, 14%, 43%)
+// - Dark grayish cyan: hsl(184, 14%, 56%)
+// - Light grayish cyan: hsl(185, 41%, 84%)
+// - Light grayish cyan: hsl(189, 41%, 97%)
+// - White: hsl(0, 0%, 100%)
