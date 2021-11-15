@@ -5,6 +5,6 @@ const inputCustomTip = document.querySelector(".tip__custom");
 inputBill.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
-    console.log("Deni");
+    console.log("Paul Mucioiu");
   }
 });
