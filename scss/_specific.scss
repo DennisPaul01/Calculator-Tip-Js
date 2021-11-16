@@ -156,8 +156,11 @@ main {
         background-color: var(--strong-cyan);
       }
     }
-    &__custom {
+    &__active {
+      background-color: var(--light-grayish-cyan);
+      color: var(--dark-cyan);
     }
+
     &__custom {
       font-size: 2rem;
       padding: 1rem 2rem;
@@ -232,5 +235,8 @@ main {
     background-color: var(--dark-grayish-cyan);
     color: var(--dark-cyan);
     cursor: pointer;
+  }
+  &__reset-button:hover {
+    background-color: var(--light-grayish-cyan);
   }
 }

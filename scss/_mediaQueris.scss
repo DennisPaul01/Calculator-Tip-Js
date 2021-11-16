@@ -28,6 +28,50 @@
   :root {
     font-size: 9px;
   }
+  main {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    width: 50rem;
+    flex-direction: column;
+    height: 43rem;
+  }
+  .user-input {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    height: 35rem;
+    justify-content: space-between;
+    margin: 3rem;
+  }
+
+  .tip {
+  }
+  .user-output {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-cyan);
+    color: var(--white);
+    width: 100%;
+    height: 45rem;
+    justify-content: space-between;
+    margin: 3rem;
+    padding: 3rem;
+    border-radius: 1rem;
+    &__tip,
+    &__total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }
 
 /* Smartphones */

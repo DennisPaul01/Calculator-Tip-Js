@@ -118,13 +118,58 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"js/script.js":[function(require,module,exports) {
-//DOM
+//DOM - Selection
 var inputBill = document.querySelector(".introduce-bill__input");
 var inputCustomTip = document.querySelector(".tip__custom");
-inputBill.addEventListener("keypress", function (e) {
+var tipFive = document.querySelector(".tip__5");
+var tipTen = document.querySelector(".tip__10");
+var tipFivTen = document.querySelector(".tip__15");
+var tipTwoFive = document.querySelector(".tip__25");
+var tipFiveZero = document.querySelector(".tip__50");
+var numberPersons = document.querySelector(".split-bill__input");
+var tipPerson = document.querySelector(".user-output__value-tip");
+var tipAmount = document.querySelector(".user-output__value-total");
+var tipForm = document.querySelector(".tip__form");
+var labelError = document.querySelector(".split-bill__error-label"); //
+
+var tip, amount, person;
+tip = 0;
+
+function setTip() {
+  tip = Number(this.value);
+}
+
+tipForm.addEventListener("click", function (e) {
+  e.preventDefault();
+});
+tipFive.addEventListener("click", setTip);
+tipTen.addEventListener("click", setTip);
+tipFivTen.addEventListener("click", setTip);
+tipTwoFive.addEventListener("click", setTip);
+tipFiveZero.addEventListener("click", setTip);
+window.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
-    console.log("Deni");
+
+    if (numberPersons.value == 0) {
+      labelError.style.display = "block";
+      numberPersons.style.border = "2px solid #f26c4f";
+      return;
+    }
+
+    if (numberPersons.value >= 1) {
+      labelError.style.display = "none";
+      numberPersons.style.border = "2px solid white";
+    }
+
+    if (inputCustomTip.value > 0) {
+      tip = inputCustomTip.value / 100;
+    }
+
+    amount = Number(inputBill.value) + Number(inputBill.value) * tip;
+    person = amount / numberPersons.value;
+    tipPerson.textContent = "$ ".concat(person.toFixed(2));
+    tipAmount.textContent = "$ ".concat(amount.toFixed(2));
   }
 });
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -155,7 +200,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56677" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58749" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
