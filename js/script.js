@@ -11,6 +11,8 @@ const tipPerson = document.querySelector(".user-output__value-tip");
 const tipAmount = document.querySelector(".user-output__value-total");
 const tipForm = document.querySelector(".tip__form");
 const labelError = document.querySelector(".split-bill__error-label");
+const labelErrorBill = document.querySelector(".introduce-bill__error-label");
+const ctaReset = document.querySelector(".user-output__reset-button");
 
 //
 let tip, amount, person;
@@ -32,6 +34,15 @@ tipFiveZero.addEventListener("click", setTip);
 window.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     e.preventDefault();
+    if (inputBill.value == 0) {
+      labelErrorBill.style.display = "block";
+      inputBill.style.border = "2px solid #f26c4f";
+      return;
+    }
+    if (inputBill.value >= 1) {
+      labelErrorBill.style.display = "none";
+      inputBill.style.border = "2px solid white";
+    }
     if (numberPersons.value == 0) {
       labelError.style.display = "block";
       numberPersons.style.border = "2px solid #f26c4f";
@@ -52,3 +63,15 @@ window.addEventListener("keypress", (e) => {
     tipAmount.textContent = `$ ${amount.toFixed(2)}`;
   }
 });
+
+///RESET BUTTON
+
+ctaReset.addEventListener("click", reset);
+
+function reset() {
+  inputBill.value = " ";
+  tip = 0;
+  numberPersons.value = " ";
+  tipPerson.textContent = "$ 0.00";
+  tipAmount.textContent = "$ 0.00";
+}

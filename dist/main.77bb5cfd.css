@@ -184,17 +184,11 @@ button {
 }
 
 /* Specifics */
-main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .container {
+  margin: auto;
   display: flex;
   align-items: center;
-  width: 90rem;
+  max-width: 90rem;
   height: 43rem;
   background-color: var(--white);
   border-radius: 3rem;
@@ -219,7 +213,7 @@ main {
 .tip__form {
   display: grid;
   grid-gap: 1rem;
-  width: 100%;
+  min-width: 100%;
   grid-template-areas: "tip__label tip__label tip__label" "tip__5 tip__10 tip__15" "tip__25 tip__50 tip__custom";
 }
 .tip__label {
@@ -249,7 +243,7 @@ main {
   flex-direction: column;
   background-color: var(--dark-cyan);
   color: var(--white);
-  width: 100%;
+  width: 40rem;
   height: 35rem;
   justify-content: space-between;
   margin: 3rem;
@@ -263,6 +257,7 @@ main {
 }
 
 .name {
+  margin-top: 5rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 4rem;
@@ -294,10 +289,21 @@ main {
 .user-input .introduce-bill__input:focus {
   border: 2px solid var(--strong-cyan);
 }
+.user-input .introduce-bill__form {
+  position: relative;
+}
 .user-input .introduce-bill__icon-dollar {
   position: absolute;
-  top: 20.5rem;
-  left: 4.5rem;
+  top: 60%;
+  left: 5%;
+}
+.user-input .introduce-bill__error-label {
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  font-size: 1.5rem;
+  color: var(--error-color);
+  display: none;
 }
 .user-input .tip__label {
   font-size: 2rem;
@@ -310,7 +316,7 @@ main {
   color: var(--white);
   padding: 1rem 2rem;
   border: none;
-  width: 12rem;
+  max-width: 12rem;
   cursor: pointer;
   border-radius: 0.5rem;
   border: 2px solid var(--white);
@@ -325,7 +331,7 @@ main {
 .user-input .tip__custom {
   font-size: 2rem;
   padding: 1rem 2rem;
-  width: 12rem;
+  max-width: 12rem;
   cursor: pointer;
   border-radius: 0.5rem;
   border: 2px solid var(--white);
@@ -369,10 +375,13 @@ main {
   color: var(--error-color);
   display: none;
 }
+.user-input .split-bill__form {
+  position: relative;
+}
 .user-input .split-bill__icon-person {
   position: absolute;
-  left: 5rem;
-  top: 46.5rem;
+  top: 60%;
+  left: 5%;
 }
 
 .user-output__amount {
@@ -437,34 +446,25 @@ main {
     font-size: 9px;
   }
 
-  main {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
   .container {
-    display: flex;
-    align-items: center;
-    width: 50rem;
+    max-width: 50rem;
+    min-width: 50rem;
     flex-direction: column;
-    height: 43rem;
+    max-height: 100rem;
+    margin: auto;
   }
 
   .user-input {
     flex-basis: 50%;
-    display: flex;
-    flex-direction: column;
     max-width: 90%;
-    height: 35rem;
+    height: 45rem;
     justify-content: space-between;
     margin: 3rem;
   }
 
   .user-output {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     background-color: var(--dark-cyan);
     color: var(--white);
     width: 100%;
@@ -481,10 +481,62 @@ main {
   }
 }
 /* Smartphones */
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   :root {
     font-size: 7px;
     --content-padding: 1rem;
+  }
+
+  .container {
+    min-width: 100%;
+    flex-direction: column;
+    height: 100%;
+    min-height: 80rem;
+    margin: 0;
+  }
+
+  .user-input {
+    flex-basis: 50%;
+    max-width: 90%;
+    justify-content: space-between;
+    margin: 3rem;
+  }
+
+  .tip__form {
+    display: grid;
+    grid-gap: 1rem;
+    width: 100%;
+    justify-content: space-around;
+    grid-template-areas: "tip__label tip__label" "tip__5 tip__10 " "tip__15 tip__25" "tip__50 tip__custom";
+  }
+
+  .tip {
+    align-items: center;
+  }
+  .tip__label {
+    font-size: 2rem;
+    color: var(--dark-grayish-cyan);
+    font-weight: 700;
+  }
+  .tip__5, .tip__10, .tip__15, .tip__25, .tip__50 {
+    align-self: center;
+    font-size: 3rem !important;
+    min-width: 23rem;
+    border-radius: 10rem;
+  }
+  .tip__custom {
+    min-width: 23rem;
+  }
+
+  .user-output {
+    width: 80%;
+    min-height: 35rem;
+  }
+  .user-output__amount {
+    font-size: 3rem;
+  }
+  .user-output__person {
+    font-size: 2rem;
   }
 }
 

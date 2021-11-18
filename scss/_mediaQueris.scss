@@ -28,35 +28,26 @@
   :root {
     font-size: 9px;
   }
-  main {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   .container {
-    display: flex;
-    align-items: center;
-    width: 50rem;
+    max-width: 50rem;
+    min-width: 50rem;
     flex-direction: column;
-    height: 43rem;
+    max-height: 100rem;
+    margin: auto;
   }
   .user-input {
     flex-basis: 50%;
-    display: flex;
-    flex-direction: column;
+
     max-width: 90%;
-    height: 35rem;
+    height: 45rem;
     justify-content: space-between;
     margin: 3rem;
   }
 
-  .tip {
-  }
   .user-output {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     background-color: var(--dark-cyan);
     color: var(--white);
     width: 100%;
@@ -75,9 +66,64 @@
 }
 
 /* Smartphones */
-@media (max-width: 550px) {
+@media (max-width: 500px) {
   :root {
     font-size: 7px;
     --content-padding: 1rem;
+  }
+  .container {
+    min-width: 100%;
+    flex-direction: column;
+    height: 100%;
+    min-height: 80rem;
+    margin: 0;
+  }
+  .user-input {
+    flex-basis: 50%;
+
+    max-width: 90%;
+    justify-content: space-between;
+    margin: 3rem;
+  }
+  .tip__form {
+    display: grid;
+    grid-gap: 1rem;
+    width: 100%;
+    justify-content: space-around;
+    grid-template-areas:
+      "tip__label tip__label"
+      "tip__5 tip__10 "
+      "tip__15 tip__25"
+      "tip__50 tip__custom";
+  }
+  .tip {
+    align-items: center;
+    &__label {
+      @include label-look;
+    }
+    &__5,
+    &__10,
+    &__15,
+    &__25,
+    &__50 {
+      align-self: center;
+      font-size: 3rem !important;
+      min-width: 23rem;
+      border-radius: 10rem;
+    }
+    &__custom {
+      min-width: 23rem;
+    }
+  }
+
+  .user-output {
+    width: 80%;
+    min-height: 35rem;
+    &__amount {
+      font-size: 3rem;
+    }
+    &__person {
+      font-size: 2rem;
+    }
   }
 }

@@ -130,7 +130,9 @@ var numberPersons = document.querySelector(".split-bill__input");
 var tipPerson = document.querySelector(".user-output__value-tip");
 var tipAmount = document.querySelector(".user-output__value-total");
 var tipForm = document.querySelector(".tip__form");
-var labelError = document.querySelector(".split-bill__error-label"); //
+var labelError = document.querySelector(".split-bill__error-label");
+var labelErrorBill = document.querySelector(".introduce-bill__error-label");
+var ctaReset = document.querySelector(".user-output__reset-button"); //
 
 var tip, amount, person;
 tip = 0;
@@ -150,6 +152,17 @@ tipFiveZero.addEventListener("click", setTip);
 window.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();
+
+    if (inputBill.value == 0) {
+      labelErrorBill.style.display = "block";
+      inputBill.style.border = "2px solid #f26c4f";
+      return;
+    }
+
+    if (inputBill.value >= 1) {
+      labelErrorBill.style.display = "none";
+      inputBill.style.border = "2px solid white";
+    }
 
     if (numberPersons.value == 0) {
       labelError.style.display = "block";
@@ -171,7 +184,17 @@ window.addEventListener("keypress", function (e) {
     tipPerson.textContent = "$ ".concat(person.toFixed(2));
     tipAmount.textContent = "$ ".concat(amount.toFixed(2));
   }
-});
+}); ///RESET BUTTON
+
+ctaReset.addEventListener("click", reset);
+
+function reset() {
+  inputBill.value = " ";
+  tip = 0;
+  numberPersons.value = " ";
+  tipPerson.textContent = "$ 0.00";
+  tipAmount.textContent = "$ 0.00";
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -200,7 +223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58749" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57896" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

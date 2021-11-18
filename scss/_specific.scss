@@ -1,16 +1,11 @@
 /* Specifics */
-main {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 //Container layout
 .container {
+  margin: auto;
   display: flex;
   align-items: center;
-  width: 90rem;
+  max-width: 90rem;
   height: 43rem;
   background-color: var(--white);
   border-radius: 3rem;
@@ -33,7 +28,7 @@ main {
   &__form {
     display: grid;
     grid-gap: 1rem;
-    width: 100%;
+    min-width: 100%;
     grid-template-areas:
       "tip__label tip__label tip__label"
       "tip__5 tip__10 tip__15"
@@ -66,7 +61,7 @@ main {
   flex-direction: column;
   background-color: var(--dark-cyan);
   color: var(--white);
-  width: 100%;
+  width: 40rem;
   height: 35rem;
   justify-content: space-between;
   margin: 3rem;
@@ -103,6 +98,7 @@ main {
 }
 
 .name {
+  margin-top: 5rem;
   font-weight: 700;
   text-align: center;
   margin-bottom: 4rem;
@@ -127,10 +123,21 @@ main {
       }
       position: relative;
     }
+    &__form {
+      position: relative;
+    }
     &__icon-dollar {
       position: absolute;
-      top: 20.5rem;
-      left: 4.5rem;
+      top: 60%;
+      left: 5%;
+    }
+    &__error-label {
+      position: absolute;
+      right: 0rem;
+      top: 0rem;
+      font-size: 1.5rem;
+      color: var(--error-color);
+      display: none;
     }
   }
   .tip {
@@ -147,7 +154,7 @@ main {
       color: var(--white);
       padding: 1rem 2rem;
       border: none;
-      width: 12rem;
+      max-width: 12rem;
       cursor: pointer;
       border-radius: 0.5rem;
       border: 2px solid var(--white);
@@ -164,7 +171,7 @@ main {
     &__custom {
       font-size: 2rem;
       padding: 1rem 2rem;
-      width: 12rem;
+      max-width: 12rem;
       cursor: pointer;
       border-radius: 0.5rem;
       border: 2px solid var(--white);
@@ -200,10 +207,13 @@ main {
       color: var(--error-color);
       display: none;
     }
+    &__form {
+      position: relative;
+    }
     &__icon-person {
       position: absolute;
-      left: 5rem;
-      top: 46.5rem;
+      top: 60%;
+      left: 5%;
     }
   }
 }
