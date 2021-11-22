@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --dist-dir ./dist"
   },
   "author": "Mucioiu Denis Paul",
   "license": "ISC",
@@ -14,7 +14,10 @@
     "parcel-plugin-watch-reload": "^1.0.3"
   },
   "dependencies": {
+    "-": "^0.0.1",
+    "D": "^1.0.0",
     "parcel": "^2.0.1",
-    "regenerator-runtime": "^0.13.9"
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.43.4"
   }
 }
